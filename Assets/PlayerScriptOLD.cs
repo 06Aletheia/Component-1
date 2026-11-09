@@ -19,11 +19,11 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         Vector2 inputDirection = move.ReadValue<Vector2>();
-        Vector3 movement = Vector3.zero;
+        Vector3 movement = new Vector3(0, -1, 0);
         movement.x = inputDirection.x;
         movement.z = inputDirection.y;
         body.linearVelocity = movement * speed;
-        
+
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
             body.AddForce(Vector3.up * jump, ForceMode.Impulse); // Ensures the force is applied all at once instead of continously.
